@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="努力中的前端开发工程师"><title>Git入门与进阶 | 静默如初</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Git入门与进阶</h1><a id="logo" href="/.">静默如初</a><p class="description">The Greatness is Achieved through Diligence and Retarded by Laziness.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/category/"><i class="fa fa-th"> 分类</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Git入门与进阶</h1><div class="post-meta">Apr 18, 2018<span> | </span><span class="category"><a class="categroyTitle" href="/categories/Java/">Java</a><i class="fa fa-angle-double-right"></i><a class="categroyTitle" href="/categories/Java/git/">git</a><i class="fa fa-angle-double-right"></i></span></div><div class="clear"><div class="toc-article" id="toc"><i class="fa fa-angle-double-left"></i><div class="toc-content"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-与-SVN-对比"><span class="toc-number">1.</span> <span class="toc-text">Git 与 SVN 对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-工作流程"><span class="toc-number">2.</span> <span class="toc-text">Git 工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-的下载与安装"><span class="toc-number">3.</span> <span class="toc-text">Git 的下载与安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-本地仓库"><span class="toc-number">4.</span> <span class="toc-text">Git 本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-远程仓库"><span class="toc-number">5.</span> <span class="toc-text">Git 远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接-Git-远程仓库并同步"><span class="toc-number">6.</span> <span class="toc-text">连接 Git 远程仓库并同步</span></a></li></ol></div></div></div><div class="post-content"><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/log.png" alt=""></p>
+<blockquote>
+<p>&emsp;&emsp;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p>
+</blockquote>
+<h3 id="Git-与-SVN-对比"><a href="#Git-与-SVN-对比" class="headerlink" title="Git 与 SVN 对比"></a>Git 与 SVN 对比</h3><ul>
+<li>SVN 是集中式版本控制软件，版本库是放在中央服务器，当我们进行项目开发时，首先要从中央服务器获取最新版本；开发完毕后要将代码提交到中央服务器。<font color="red">集中版本式控制系统必须联网才能工作，即使是局域网也必须保持与局域网服务器的连接。</font></li>
+<li>Git 是分布式版本控制软件，它没有中央服务器一说，每个人的电脑就是一个完整的版本库。当我们需要共享文件的时候只需要创建一个共享版本库进行push或pull就能看到对方修改。</li>
+</ul>
+<h3 id="Git-工作流程"><a href="#Git-工作流程" class="headerlink" title="Git 工作流程"></a>Git 工作流程</h3><p>&emsp;&emsp;一般工作流程如下（具体命令步骤将在下文提出）：</p>
+<ul>
+<li>从远程仓库克隆代码到本地作为本地库（可直接克隆至编辑器工作空间）</li>
+<li>代码开发完毕后提交至本地仓库</li>
+<li>从远程仓库拉取最新版代码，有冲突解决冲突（有冲突时本地仓库文件夹会有“!”标记，有可能标记会有延迟）。</li>
+<li>处理好本地库代码后提交到远程库共享代码</li>
+</ul>
+<h3 id="Git-的下载与安装"><a href="#Git-的下载与安装" class="headerlink" title="Git 的下载与安装"></a>Git 的下载与安装</h3><p>&emsp;&emsp;由于本人使用的是 windows 系统，所以只阐述 windows 下 git 的安装及使用。</p>
+<ul>
+<li><p>Git 软件下载</p>
+<p>  官方下载地址：<strong><a href="https://git-scm.com/download" target="_blank" rel="noopener">https://git-scm.com/download</a></strong></p>
+</li>
+<li><p>Git 软件安装</p>
+<p>  下载完成之后双击进行安装，选择自己的安装路径，傻瓜式 next 一路到底。</p>
+</li>
+</ul>
+<h3 id="Git-本地仓库"><a href="#Git-本地仓库" class="headerlink" title="Git 本地仓库"></a>Git 本地仓库</h3><blockquote>
+<p>&emsp;&emsp;版本库又名仓库，repository，可以理解成一个目录，这个目录里面所有文件都将被 Git 管理起来，每个文件的修改、删除、新增，Git 都能跟踪，并且在无需联网的情况下具有完整的版本管理能力。</p>
+</blockquote>
+<ul>
+<li>创建本地版本库</li>
+</ul>
+<p>在磁盘里任选并进入一个文件夹，右击空白处，如下：</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic1.png" alt=""></p>
+<p>点击 <code><strong>Git Bash Here</strong></code>，在出现的窗口中输入 <code><strong>git init</strong></code>，并且将会出现隐藏文件夹 <code><strong>.git</strong></code>。演示里面的文件夹 Git Test 就是我们所说的工作区，隐藏文件夹 <code><strong>.git</strong></code> 就是版本库。</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic2.png" alt=""></p>
+<h3 id="Git-远程仓库"><a href="#Git-远程仓库" class="headerlink" title="Git 远程仓库"></a>Git 远程仓库</h3><blockquote>
+<p>&emsp;&emsp;目前我们已经有了本地 Git 仓库，如果需要协作开发，则必须有一个远程仓库。常用的远程仓库是 github：<strong><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></strong>。</p>
+</blockquote>
+<ul>
+<li>创建 Github 账号（各自摸索…）</li>
+<li>创建远程仓库：</li>
+</ul>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic3.png" alt=""></p>
+<p>填写好仓库名称，仓库描述，选择 <code>Public</code>( <code>Private 是付费的</code>)，就可以 <code>Create repository</code> 了。</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic4.png" alt=""></p>
+<ul>
+<li>SSH 密匙</li>
+</ul>
+<blockquote>
+<p>&emsp;&emsp;SSH 是英文 Secure Shell的简写形式。通过使用 SSH，它可以把所有传输的数据进行加密，这样可以防止 DNS 欺骗和 IP 欺骗。目前 Github 采用这种方式对传输数据进行加密。</p>
+</blockquote>
+<p>在 windows 系统下，我们使用 <code><strong>Git Bash.exe</strong></code> 来生成密匙，命令： <code><strong>ssh-keygen -t rsa</strong></code>。具体操作如下图：</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic5.png" alt=""></p>
+<p>执行完命令后，会在 windows <font color="red">本地用户下的 <strong>.ssh</strong> 目录下生成公钥和私钥</font>。</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic6.png" alt=""></p>
+<p>密钥生成后，需要在 Github 上配置密匙本地才能访问，操作如下：</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic7.png" alt=""></p>
+<p>点击 <strong>Settings</strong>，选中右边侧边栏的 <strong>SSH and GPS keys</strong>，再点击右上角出现 <strong>New SSH key</strong>，将本地的<font color="red"><strong>公钥</strong></font>里面的信息全部复制，按下图操作：</p>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic8.png" alt=""></p>
+<p>点击 <strong>And SSH key</strong> 按钮完成配置！</p>
+<h3 id="连接-Git-远程仓库并同步"><a href="#连接-Git-远程仓库并同步" class="headerlink" title="连接 Git 远程仓库并同步"></a>连接 Git 远程仓库并同步</h3><ol>
+<li>初始化账号：我们是第一次连接远程仓库，本地 Git 并不知道我们的身份，因此我们需初始化自己的身份；<ul>
+<li>git config user.name “你的Github账号名称(非邮箱)”</li>
+<li>git config user.email “你的Github邮箱”</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic9.png" alt=""></p>
+<ol start="2">
+<li>添加远程仓库<ul>
+<li>git remote add 远端名称 远程库 SSH 地址</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic10.png" alt=""></p>
+<ol start="3">
+<li>提交到 Github 远程仓库（个人在项目开发中使用的操作）<ul>
+<li>git status（查看当前状态，包括当前分支、增删改过的文件）</li>
+<li>git add . （将当前目录下的所有操作过的文件添加）</li>
+<li>git commit -m’提交说明’ （提交到本地仓库）</li>
+<li>git pull （拉取远程库的文件，每次提交到本地库后需进行此操作，有冲突则要修改并merge）</li>
+<li>git push （将拉取和自己操作过的文件提交至远程仓库）</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic11.png" alt=""></p>
+<ol start="4">
+<li>完成所有操作后我们可以在自己的 Github 上查看自己所提交的内容</li>
+</ol>
+<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic12.png" alt=""></p>
+<p> <strong>以上是本人的浅显理解，如有错误，请指正，感激不尽！</strong></p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a class="article-share-link" data-url="http://www.luo01.cn/2018/04/18/Git入门与进阶/" data-id="cjja64gd40000rouyxxs5flcr" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQW7jMBAEwPz/01pgkUMWWAvdHDuAyOIpcBRZpUOHw5mvr3hdf9f959ePlfw2v+ZtCwMD47GM63YlD3H/t/cv4tV92vtjYGCcwMjDNAnWV494/9DJ3V5+joGBgXF7TR6yybYPAwMD412MvGRti1IMDAyMSRGbx2h7fbslxcDAOI0xCcFP//zB/gYGBsZDGFe58kP89uh/7Xm+/xYDA2NrRv4FkzGLtfhO0rV+TxgYGA9k1KFWbt3a4jN/oYv/NzAwMB7IKC4qH3ctlPMN6H/ugIGBsSkjKUQn41x5vK5FNgYGxgmMeqAhKErzgYz3tiIwMDB2ZbRjFslWMg/xdiu5WItjYGBswUgCtN0Irg2KJYyXgYuBgbEpI79RG4trB3Z5uRv1YzEwMI5hTBqTbXAnJeti4GJgYGzBmJzYfaJVsPaaMDAw9mNEfYMyCieYtZYqBgbGCYz84SYlbtJOSGK33tViYGA8nFEfZi01BvLWZovHwMA4hzEZoZiXrPkxXFSLY2BgbMdomwFte+AT5WtdxGJgYGzHmDQp83idx+4/n2NgYGzNSJqIa8MWk/GLtdExDAyMXRlXuX5zw1cMgWFgYGzNyNf8a9a2mElhjIGBcQIjD9k2miekdtOJgYFxAqMNwbVhspZUIDEwMDDiIE5anjkpL48xMDAwJmNe7RYzj1oMDIzTGG0R224f2/ZkHd8YGBhbMyaDDu9qNCaHa+2hHgYGxhaMPwBstz2o2Xq8AAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/Java/">Java</a></div><div class="post-nav"><a class="pre" href="/2018/05/05/Javascript 设计模式-一/">Javascript 设计模式(一) --- 概念小谈</a><a class="next" href="/2018/04/18/Vuejs最佳实践/">Vuejs最佳实践方法</a></div></div><script type="text/javascript" src="/js/artical.js?v=0.0.1"></script></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><a href="http://luo01.cn/"><img class="protrait" src="http://luo01.cn/img/protrait.png" alt=""/></a></div><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/">Web前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/Javascript/">Javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/小程序/">小程序</a><span class="category-list-count">1</span></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Async-Await-Js/" style="font-size: 15px;">Async/Await Js</a> <a href="/tags/设计模式-Js/" style="font-size: 15px;">设计模式 Js</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/web/" style="font-size: 15px;">web</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/06/微信小程序简易开发/">微信小程序简易开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/Javascript 设计模式(二)/">Javascript 设计模式(二) --- 构造器模式与模块模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/06/10分钟解读 Javascript 的Async-Await/">10分钟解读 Javascript 的Async/Await</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Javascript 设计模式-一/">Javascript 设计模式(一) --- 概念小谈</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/Git入门与进阶/">Git入门与进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/Vuejs最佳实践/">Vuejs最佳实践方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/16/搭建hexo博客/">搭建属于自己的博客</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul class="post-list"> <li class="post-list-item"> <a class="post-list-link" href="http://www.ruanyifeng.com" title="阮一峰" target="_blank">阮一峰</a></li><li class="post-list-item"> <a class="post-list-link" href="http://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></li><li class="post-list-item"> <a class="post-list-link" href="https://coolshell.cn/featured" title="左耳朵耗子" target="_blank">左耳朵耗子</a></li><li class="post-list-item"> <a class="post-list-link" href="http://www.giscafer.com/" title="Nickbing Lao" target="_blank">Nickbing Lao</a></li><li class="post-list-item"> <a class="post-list-link" href="https://ioliu.cn/" title="云淡风轻" target="_blank">云淡风轻</a></li><li class="post-list-item"> <a class="post-list-link" href="https://www.haomwei.com/" title="紫禁屠夫" target="_blank">紫禁屠夫</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">静默如初.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.1"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
