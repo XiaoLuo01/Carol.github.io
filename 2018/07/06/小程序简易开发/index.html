@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="努力中的前端开发工程师"><title>微信小程序简易开发 | 静默如初</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微信小程序简易开发</h1><a id="logo" href="/.">静默如初</a><p class="description">The Greatness is Achieved through Diligence and Retarded by Laziness.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/category/"><i class="fa fa-th"> 分类</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微信小程序简易开发</h1><div class="post-meta">Jul 6, 2018<span> | </span><span class="category"><a class="categroyTitle" href="/categories/Web前端/">Web前端</a><i class="fa fa-angle-double-right"></i><a class="categroyTitle" href="/categories/Web前端/小程序/">小程序</a><i class="fa fa-angle-double-right"></i></span></div><div class="clear"><div class="toc-article" id="toc"><i class="fa fa-angle-double-left"></i><div class="toc-content"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发准备"><span class="toc-number">1.</span> <span class="toc-text">开发准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建项目"><span class="toc-number">1.1.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目结构"><span class="toc-number">1.2.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#页面结构"><span class="toc-number">1.3.</span> <span class="toc-text">页面结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目配置"><span class="toc-number">1.4.</span> <span class="toc-text">项目配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑层分析"><span class="toc-number">1.5.</span> <span class="toc-text">逻辑层分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#应用程序逻辑-app-js"><span class="toc-number">1.5.1.</span> <span class="toc-text">应用程序逻辑 app.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面逻辑-page-name-js"><span class="toc-number">1.5.2.</span> <span class="toc-text">页面逻辑[page-name].js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Page-option-方法-option-参数说明"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Page([option])方法[option]参数说明</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图层分析"><span class="toc-number">1.6.</span> <span class="toc-text">视图层分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-name-wxml页面结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">[page-name].wxml页面结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#page-name-wxss页面样式"><span class="toc-number">1.6.2.</span> <span class="toc-text">[page-name].wxss页面样式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#尺寸单位"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">尺寸单位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#样式导入"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">样式导入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择器"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全局样式与局部样式"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">全局样式与局部样式</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div class="post-content"><blockquote>
+<p>&emsp;&emsp;最近公司项目不是很赶, 所以平时还是有很多自由时间的, 刚好组长叫我做一个小程序的技术预研, 其实我以下所写的这些在微信官方文档上以及网上面都有详细说明的, 我这里只是做一个简化以及对我自己的学习小程序开发过程的一个记录。</p>
+</blockquote>
+<h2 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h2><blockquote>
+<p>在开始小程序开发之前需要去官网注册一个appleID, 然后还需要下载小程序开发工具, 这些都比较简单, 这里就不累述了.  </p>
+</blockquote>
+<p>小程序注册链接: <a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/</a></p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>官方的开发工具准备了一个<code>QuickStart</code>项目。在创建时，如果选择空文件夹，开发者工具会提示：是否需要创建一个<code>QuickStart</code>项目。选择是，开发者工具会自动帮助我们在开发目录里生成一个简单的项目。</p>
+<p><img src="/2018/07/06/小程序简易开发/sm_pic1.png" alt=""></p>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">└─ Demo/ ······················· 项目所在目录</span><br><span class="line">   ├─ pages/ ··························· 页面目录</span><br><span class="line">   │  ├─ index/ ························  index页面</span><br><span class="line">   │  │  ├─ index<span class="selector-class">.js</span> ···················   index页面逻辑</span><br><span class="line">   │  │  ├─ index<span class="selector-class">.wxml</span> ·················   index页面结构</span><br><span class="line">   │  │  └─ index<span class="selector-class">.wxss</span> ·················   index页面样式</span><br><span class="line">   │  └─ logs/ ·························  logs页面</span><br><span class="line">   │     ├─ logs<span class="selector-class">.js</span> ····················   logs页面逻辑</span><br><span class="line">   │     ├─ logs<span class="selector-class">.wxml</span> ··················   logs页面结构</span><br><span class="line">   │     └─ logs<span class="selector-class">.wxss</span> ··················   logs页面样式</span><br><span class="line">   ├─ utils/ ···························  公共脚本目录</span><br><span class="line">   │  └─ util<span class="selector-class">.js</span> ·······················   工具脚本</span><br><span class="line">   ├─ app<span class="selector-class">.js</span> ··························· 应用程序逻辑</span><br><span class="line">   ├─ app<span class="selector-class">.json</span> ························· 应用程序配置</span><br><span class="line">   └─ app<span class="selector-class">.wxss</span> ························· 应用程序公共样式</span><br></pre></td></tr></table></figure>
+<h3 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h3><p>每个页面组件也分为四个文件组成:</p>
+<ul>
+<li><strong>[page-name].js</strong> <ul>
+<li>页面逻辑文件，用于创建页面对象，以及处理页面生命周期控制和数据处理</li>
+</ul>
+</li>
+<li><strong>[page-name].json</strong> : <ul>
+<li>设置当前页面工作时的window的配置，此处会覆盖app.json中的window设置，也就是说只可以设置window中设置的属性 </li>
+</ul>
+</li>
+<li><strong>[page-name].wxml</strong> :  <ul>
+<li>wxml指的是Wei Xin Markup Language </li>
+<li>用于定义页面中元素结构的，语法遵循XML语法，注意是XML语法，不是HTML语法 </li>
+</ul>
+</li>
+<li><strong>[page-name].wxss</strong><ul>
+<li>wxml指的是Wei Xin Style Sheet </li>
+<li>用于定义页面样式的，语法遵循CSS语法，扩展了CSS基本用法和长度单位（主要就是rpx响应式像素） </li>
+</ul>
+</li>
+</ul>
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><p><img src="/2018/07/06/小程序简易开发/config.jpg" alt="config"></p>
+<p>小程序的配置文件分为两种: </p>
+<ul>
+<li>全局配置文件, 根目录下的 <code>app.json</code></li>
+<li>页面配置文件, 每个页面目录下的<code>[page-name].json</code></li>
+</ul>
+<p><em><strong>app.json</strong></em>  —&gt;  项目配置声明文件 (指定项目的一些信息，比如导航栏样式颜色等等 )</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 当前程序是由哪些页面组成的（第一项默认为初始页面）所有使用到的组件或页面都必须在此体现</span></span><br><span class="line">  <span class="string">"pages"</span>: [ ... ],</span><br><span class="line">  <span class="comment">// 应用程序窗口设置</span></span><br><span class="line">  <span class="string">"window"</span>: &#123; ... &#125;,</span><br><span class="line">  <span class="comment">// 应用导航栏设置</span></span><br><span class="line">  <span class="string">"tabBar"</span>: &#123; ... &#125;,</span><br><span class="line">  <span class="comment">// 网络超时设置</span></span><br><span class="line">  <span class="string">"networkTimeout"</span>: &#123;&#125;,</span><br><span class="line">  <span class="comment">// 是否在控制台输出调试信息</span></span><br><span class="line">  <span class="string">"debug"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em><strong>[page-name].json</strong></em>  —&gt;  用于指定特定页面工作时，window的设置： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 导航条背景色</span></span><br><span class="line">  <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#35495e"</span>,</span><br><span class="line">  <span class="comment">// 导航条前景色（只能是white/black）</span></span><br><span class="line">  <span class="string">"navigationBarTextStyle"</span>: <span class="string">"white"</span>,</span><br><span class="line">  <span class="comment">// 导航条文本</span></span><br><span class="line">  <span class="string">"navigationBarTitleText"</span>: <span class="string">"电影 « 豆瓣"</span>,</span><br><span class="line">  <span class="comment">// 窗口背景颜色</span></span><br><span class="line">  <span class="string">"backgroundColor"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">  <span class="comment">// 窗口前景色</span></span><br><span class="line">  <span class="string">"backgroundTextStyle"</span>: <span class="string">"dark"</span>,</span><br><span class="line">  <span class="comment">// 是否开启下拉刷新</span></span><br><span class="line">  <span class="string">"enablePullDownRefresh"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="逻辑层分析"><a href="#逻辑层分析" class="headerlink" title="逻辑层分析"></a>逻辑层分析</h3><h4 id="应用程序逻辑-app-js"><a href="#应用程序逻辑-app-js" class="headerlink" title="应用程序逻辑 app.js"></a>应用程序逻辑 <code>app.js</code></h4><p><code>app.js</code>作为项目主入口文件，用于创建应用程序对象 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// App函数是一个全局函数，用于创建应用程序对象</span></span><br><span class="line">App(&#123;</span><br><span class="line">  <span class="comment">// ========== 全局数据对象（可以整个应用程序共享） ==========</span></span><br><span class="line">  globalData: &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ========== 应用程序全局方法 ==========</span></span><br><span class="line">  method1 (p1, p2) &#123; ... &#125;,</span><br><span class="line">  method2 (p1, p2) &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ========== 生命周期方法 ==========</span></span><br><span class="line">  <span class="comment">// 应用程序启动时触发一次</span></span><br><span class="line">  onLaunch () &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当应用程序进入前台显示状态时触发</span></span><br><span class="line">  onShow () &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当应用程序进入后台状态时触发</span></span><br><span class="line">  onHide () &#123; ... &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>也就是说，当应用程序启动时会自动执行项目目录下的<code>app.js</code>文件。</p>
+<p>在<code>app.js</code>中通过调用全局<code>App([option])</code>方法创建一个应用程序实例。</p>
+<p>其中通过参数指定的一些特定的方法，会在特定的执行时机去执行，也就是说通常所说的生命周期事件方法。 </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th>描述</th>
+<th>触发时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">onLaunch</td>
+<td style="text-align:center">Function</td>
+<td>生命周期函数–监听小程序初始化</td>
+<td>当小程序初始化完成时，会触发 onLaunch（全局只触发一次）</td>
+</tr>
+<tr>
+<td style="text-align:center">onShow</td>
+<td style="text-align:center">Function</td>
+<td>生命周期函数–监听小程序显示</td>
+<td>当小程序启动，或从后台进入前台显示，会触发 onShow</td>
+</tr>
+<tr>
+<td style="text-align:center">onHide</td>
+<td style="text-align:center">Function</td>
+<td>生命周期函数–监听小程序隐藏</td>
+<td>当小程序从前台进入后台，会触发 onHide</td>
+</tr>
+</tbody>
+</table>
+<p>也可以定义任意其他的对象成员（例如：方法和属性），这些成员可以在内部直接使用，或者外部通过获取<code>app</code>对象调用： </p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>其他</td>
+<td>Any</td>
+<td>开发者可以添加任意的函数或数据到 Object 参数中，用 this 可以访问，一般用于存放业务逻辑配置，比如：API地址</td>
+</tr>
+</tbody>
+</table>
+<p>app.js </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">App(&#123;</span><br><span class="line">  data1: <span class="string">'123'</span>,</span><br><span class="line">  data2: &#123; <span class="attr">message</span>: <span class="string">'hello world'</span> &#125;,</span><br><span class="line">  api: &#123;</span><br><span class="line">    list: <span class="string">'https://github.com/zce/'</span>,</span><br><span class="line">    detail: <span class="string">'https://github.com/zce/'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  foo () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>other.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// getApp 也是全局函数，可以在任意地方调用，用于获取全局应用程序实例对象</span></span><br><span class="line"><span class="keyword">var</span> app = getApp();</span><br><span class="line"><span class="built_in">console</span>.log(app.data1);</span><br><span class="line"><span class="built_in">console</span>.log(app.data2);</span><br><span class="line"><span class="built_in">console</span>.log(app.foo());</span><br></pre></td></tr></table></figure>
+<h4 id="页面逻辑-page-name-js"><a href="#页面逻辑-page-name-js" class="headerlink" title="页面逻辑[page-name].js"></a>页面逻辑<code>[page-name].js</code></h4><p><code>[page-name].js</code>是一个页面的重要组成部分，用于创建页面对象 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取全局应用程序对象</span></span><br><span class="line"><span class="keyword">const</span> app = getApp()</span><br><span class="line"></span><br><span class="line"><span class="comment">// Page也是一个全局函数，用来创建页面对象</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  <span class="comment">// ========== 页面数据对象（可以暴露到视图中，完成数据绑定） ==========</span></span><br><span class="line">  data: &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ========== 页面方法（可以用于抽象一些公共的行为，例如加载数据，也可以用于定义事件处理函数） ==========</span></span><br><span class="line">  method1 (p1, p2) &#123; ... &#125;,</span><br><span class="line">  method2 (p1, p2) &#123; ... &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ========== 生命周期方法 ==========</span></span><br><span class="line">  <span class="comment">// 页面加载触发</span></span><br><span class="line">  onLoad () &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在应用程序执行到当前页面时，会执行当前页面下对应的<code>[page-name].js</code>文件。 在<code>[page-name].js</code>中通过调用全局<code>Page([option])</code>方法创建一个页面实例。</p>
+<h5 id="Page-option-方法-option-参数说明"><a href="#Page-option-方法-option-参数说明" class="headerlink" title="Page([option])方法[option]参数说明"></a><code>Page([option])</code>方法<code>[option]</code>参数说明</h5><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>页面的初始数据</td>
+</tr>
+<tr>
+<td>onLoad</td>
+<td>Function</td>
+<td>生命周期函数–监听页面加载</td>
+</tr>
+<tr>
+<td>onReady</td>
+<td>Function</td>
+<td>生命周期函数–监听页面初次渲染完成</td>
+</tr>
+<tr>
+<td>onShow</td>
+<td>Function</td>
+<td>生命周期函数–监听页面显示</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>Function</td>
+<td>生命周期函数–监听页面隐藏</td>
+</tr>
+<tr>
+<td>onUnload</td>
+<td>Function</td>
+<td>生命周期函数–监听页面卸载</td>
+</tr>
+<tr>
+<td>onPullDownRefreash</td>
+<td>Function</td>
+<td>页面相关事件处理函数–监听用户下拉动作</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>Any</td>
+<td>开发者可以添加任意的函数或数据到 object 参数中，用 this 可以访问</td>
+</tr>
+</tbody>
+</table>
+<h3 id="视图层分析"><a href="#视图层分析" class="headerlink" title="视图层分析"></a>视图层分析</h3><h4 id="page-name-wxml页面结构"><a href="#page-name-wxml页面结构" class="headerlink" title="[page-name].wxml页面结构"></a><code>[page-name].wxml</code>页面结构</h4><p><code>WXML（WeiXin Markup Language）</code>是<code>MINA框架</code>设计的一套标签语言，基于<code>XML</code>。</p>
+<p>结合一些基础组件、事件系统、模板数据绑定，可以构建出页面的结构。</p>
+<p>简单来说：wxml ≈ xml + 事件系统 + 模板引擎</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    todos: [</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">'JavaScript'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">'JavaScript+'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">'JavaScript++'</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  completed (e) &#123; ... &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123; todos &#125;&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:if</span>=<span class="string">"&#123;&#123; !item.completed &#125;&#125;"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123; item.text &#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"completed"</span> <span class="attr">data-item-index</span>=<span class="string">"&#123;&#123; index &#125;&#125;"</span>&gt;</span> √ <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="page-name-wxss页面样式"><a href="#page-name-wxss页面样式" class="headerlink" title="[page-name].wxss页面样式"></a><code>[page-name].wxss</code>页面样式</h4><p><code>WXSS（WeiXin Style Sheets）</code>是<code>MINA框架</code>设计的一套标签语言，基于<code>XML</code>。</p>
+<p><code>WXSS</code>用来决定了在<code>WXML</code>中定义的组件应该怎么显示。</p>
+<p>为了适应广大的前端开发者，我们的<code>WXSS</code>具有<code>CSS</code>大部分特性。 同时为了更适合开发微信小程序，我们对<code>CSS</code>进行了扩充以及修改。扩展的特性有: </p>
+<h5 id="尺寸单位"><a href="#尺寸单位" class="headerlink" title="尺寸单位"></a>尺寸单位</h5><p>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。</p>
+<p>rem（root em）: 规定屏幕宽度为20rem；1rem = (750/20)rpx 。</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>rpx换算px (屏幕宽度/750)</th>
+<th>px换算rpx (750/屏幕宽度)</th>
+<th>rem换算rpx (750/20)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iPhone5</td>
+<td>1rpx = 0.42px</td>
+<td>1px = 2.34rpx</td>
+<td>1rem = 37.5rpx</td>
+</tr>
+<tr>
+<td>iPhone6</td>
+<td>1rpx = 0.5px</td>
+<td>1px = 2rpx</td>
+<td>1rem = 37.5rpx</td>
+</tr>
+<tr>
+<td>iPhone6s</td>
+<td>1rpx = 0.552px</td>
+<td>1px = 1.81rpx</td>
+<td>1rem = 37.5rpx</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ul>
+<li><strong>建议：</strong> 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。</li>
+<li><strong>注意：</strong> 在较小的屏幕上不可避免的会有一些毛刺，请在开发时尽量避免这种情况。</li>
+</ul>
+</blockquote>
+<h5 id="样式导入"><a href="#样式导入" class="headerlink" title="样式导入"></a>样式导入</h5><p>使用<code>@import</code>语句可以导入外联样式表，<code>@import</code>后跟需要导入的外联样式表的相对路径，用<code>;</code>表示语句结束。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"common.wxss"</span>;</span><br><span class="line"><span class="selector-tag">text</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ff0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><p>目前只支持如下选择器</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>样例</th>
+<th>样例描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.class</td>
+<td>.intro</td>
+<td>选择所有拥有 class=”intro” 的组件</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>#firstname</td>
+<td>选择拥有 id=”firstname” 的组件</td>
+</tr>
+<tr>
+<td>element</td>
+<td>view</td>
+<td>选择所有 view 组件</td>
+</tr>
+<tr>
+<td>element, element</td>
+<td>view</td>
+<td>checkbox 选择所有文档的 view 组件和所有的 checkbox 组件</td>
+</tr>
+<tr>
+<td>::after</td>
+<td>view::after</td>
+<td>在 view 组件后边插入内容</td>
+</tr>
+<tr>
+<td>::before</td>
+<td>view::before</td>
+<td>在 view 组件前边插入内容</td>
+</tr>
+</tbody>
+</table>
+<h5 id="全局样式与局部样式"><a href="#全局样式与局部样式" class="headerlink" title="全局样式与局部样式"></a>全局样式与局部样式</h5><p>定义在<code>app.wxss</code>中的样式为全局样式，作用于每一个页面。在<code>[page-name].wxss</code>文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖<code>app.wxss</code>中相同的选择器。</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a class="article-share-link" data-url="http://www.luo01.cn/2018/07/06/小程序简易开发/" data-id="cjltjy3ot002308uykeaz145o" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aS27DMAwFwNz/0i7QVYGiyiNpB7U8WgWJY2u8IMTP6xWv43v9/Pxzra/8/a/kzq8rFgYGxm0Zx3Ilm0i+X1+TPHf9+jAwMJ7AyIPseivV2Jg8d30NBgYGRhIu880lYAwMDIwrGGtMdVsYGBgYkyQ2r3HlJbZqae+EXBwDA+OGjF5j4DOfL+9vYGBg/HvGUVx5Epv8Wr3Pn/fHwMDYmpE8YDJ4MR/dKDQVMDAwHsNIDm3VoDwZvygcFjEwMB7AmGSL8xeUt0XLY2EYGBgPYCRl/V4pvxqmoyQWAwNjO0b1YFfdRC9MnzBmgYGBsSkjSTur16w3nae1b+6MgYGxNSMvck3anPkBtFeew8DA2JvR2/qbstdJw2d5iwIDA2NvRjldbDUP8qNedesYGBhPY/QK+nma2hu2KDQVMDAwHsBIgu+5zcizxi8wMDD2Zoz01cJ98dUUQjYGBsbWjElLcg2uHgfnwR0DA2NvRlLkysHV7ebXF0bEMDAwNmJUj3HVlDXfVh6+MTAwMKoNgLyp0DzqJU1WDAyMrRlXNADmo2CT8hwGBsZ+jKO48nGuSW+xXKrDwMDYmtELi3nRbTJOcdrWMTAwtmBMUtA81aw2FcrHUAwMjAcwekG2etRr5tZ5KouBgfF4Rm8srHoQ7L0+DAwMjN6Rsdf4/GjAxcDAuBVjEkzXBbLqaEWvSIeBgbE3Y94YmIxQVF/lqMuBgYFxP8YXyeT1G9Wfk9wAAAAASUVORK5CYII=">分享</a><div class="tags"><a href="/tags/web-小程序/">web 小程序</a></div><div class="post-nav"><a class="pre" href="/2018/07/24/Github如何进行PR(Pull Request)的操作/">Github如何进行PR(Pull Request)操作</a><a class="next" href="/2018/06/20/Javascript 设计模式(二)/">Javascript 设计模式(二) --- 构造器模式与模块模式</a></div></div><script type="text/javascript" src="/js/artical.js?v=0.0.1"></script></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><a href="http://luo01.cn/"><img class="protrait" src="http://luo01.cn/img/protrait.png" alt=""/></a></div><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/">Web前端</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/Javascript/">Javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/git/">git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/小程序/">小程序</a><span class="category-list-count">5</span></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Async-Await-Js/" style="font-size: 15px;">Async/Await Js</a> <a href="/tags/web/" style="font-size: 15px;">web</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/设计模式-Js/" style="font-size: 15px;">设计模式 Js</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/web-小程序/" style="font-size: 15px;">web 小程序</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/小程序如何引入fontAwesome/">小程序如何引入fontAwesome</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/小程序实现左滑删除功能/">小程序实现左滑删除功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/小程序封装滚动Tab选项卡-可滑动/">小程序封装滚动Tab选项卡: 可滑动</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/小程序出现【需要身份验证】弹窗解决办法/">小程序出现【需要身份验证】弹窗解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/24/Github如何进行PR(Pull Request)的操作/">Github如何进行PR(Pull Request)操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/06/小程序简易开发/">微信小程序简易开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/Javascript 设计模式(二)/">Javascript 设计模式(二) --- 构造器模式与模块模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/06/10分钟解读 Javascript 的Async-Await/">10分钟解读 Javascript 的Async/Await</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Javascript 设计模式-一/">Javascript 设计模式(一) --- 概念小谈</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/Vuejs最佳实践/">Vuejs最佳实践方法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul class="post-list"> <li class="post-list-item"> <a class="post-list-link" href="http://www.ruanyifeng.com" title="阮一峰" target="_blank">阮一峰</a></li><li class="post-list-item"> <a class="post-list-link" href="http://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></li><li class="post-list-item"> <a class="post-list-link" href="https://coolshell.cn/featured" title="左耳朵耗子" target="_blank">左耳朵耗子</a></li><li class="post-list-item"> <a class="post-list-link" href="http://www.giscafer.com/" title="Nickbing Lao" target="_blank">Nickbing Lao</a></li><li class="post-list-item"> <a class="post-list-link" href="https://ioliu.cn/" title="云淡风轻" target="_blank">云淡风轻</a></li><li class="post-list-item"> <a class="post-list-link" href="https://www.haomwei.com/" title="紫禁屠夫" target="_blank">紫禁屠夫</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">静默如初.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.1"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
