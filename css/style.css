@@ -220,6 +220,11 @@ div {
     background-color: #ffc0cb !important;
     border-radius: 4px;
     font-weight: bold; }
+  .post backCode {
+    color: #c7254e;
+    background-color: #ece3e6 !important;
+    border-radius: 2px;
+    padding: 2px 4px; }
   .post .post-title {
     margin: 0;
     color: #555;
