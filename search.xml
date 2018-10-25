@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title>添加本地jar添加到本地 maven 仓库</title>
+      <link href="/2018/10/25/%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0jar%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0maven%E4%BB%93%E5%BA%93/"/>
+      <url>/2018/10/25/%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0jar%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9C%AC%E5%9C%B0maven%E4%BB%93%E5%BA%93/</url>
+      <content type="html"><![CDATA[<blockquote><p>项目中有时会使用第三方 jar 包，我们需要将其添加到本地 maven 仓库作为依赖使用。其方法如下：</p></blockquote><ul><li><p>首先打开 idea 编辑器，点开最右侧的 Maven Project，点击 Excute Maven Goal，如下图所示：<br>  <img src="/2018/10/25/添加本地jar添加到本地maven仓库/1.png" alt=""></p></li><li><p>在弹出的页面的 Command line中填写我们的 Maven Goal</p></li></ul><h4 id="Maven-Goal的格式如下："><a href="#Maven-Goal的格式如下：" class="headerlink" title="Maven Goal的格式如下："></a>Maven Goal的格式如下：</h4><p>&lt;&gt;是用来标识的，实际操作中去掉，并且 -D 前面需要有空格，不能连接在一起</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">install:install-file <span class="attribute">-Dfile</span>=&lt;Jar包的地址&gt; </span><br><span class="line">                     <span class="attribute">-DgroupId</span>=&lt;Jar包的GroupId&gt; </span><br><span class="line">                     <span class="attribute">-DartifactId</span>=&lt;Jar包的引用名称&gt; </span><br><span class="line">                     <span class="attribute">-Dversion</span>=&lt;Jar包的版本&gt; </span><br><span class="line">                     <span class="attribute">-Dpackaging</span>=&lt;Jar的打包方式&gt;</span><br></pre></td></tr></table></figure><p>例子如下：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install:install-file <span class="attribute">-Dfile</span>=D:\postmsg-ump-2.3.jar <span class="attribute">-DgroupId</span>=com.xuanwu <span class="attribute">-DartifactId</span>=pmsg <span class="attribute">-Dversion</span>=1.0 <span class="attribute">-Dpackaging</span>=Jar</span><br></pre></td></tr></table></figure></p><p>点击 Excute 会有 BUILD SUCCESS 的提示，安装成功即可引用。</p>]]></content>
+      
+      <categories>
+          
+          <category> 技巧篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> maven </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Oracle-回滚已提交的数据</title>
+      <link href="/2018/10/25/Oracle-%E5%9B%9E%E6%BB%9A%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84%E6%95%B0%E6%8D%AE/"/>
+      <url>/2018/10/25/Oracle-%E5%9B%9E%E6%BB%9A%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84%E6%95%B0%E6%8D%AE/</url>
+      <content type="html"><![CDATA[<ul><li><p>第一步：查询所需表的最后需改时间</p><blockquote><p>select created, last_ddl_time from user_objects where object_name = ‘表名’</p></blockquote><p>  其中 created 为表的创建时间，last_ddl_time 为最后修改时间</p></li><li><p>第二步：回滚数据到最后操作时间之前</p><blockquote><p>flashback table 表名 to timestamp to_timestamp(‘2018-08-09 17:06:00’, ‘yyyy-mm-dd hh24:mi:ss’)；</p></blockquote></li><li><p>如果提示：“因为未启用行移动功能，不能闪回表”，则执行下面的语句后再执行第二步操作：</p><blockquote><p>alter table 表名 enable row movement;</p></blockquote></li></ul>]]></content>
+      
+      <categories>
+          
+          <category> 技巧篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>小程序swiper bindChange重复执行</title>
       <link href="/2018/09/29/%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper-bindChange%E9%87%8D%E5%A4%8D%E6%89%A7%E8%A1%8C/"/>
       <url>/2018/09/29/%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper-bindChange%E9%87%8D%E5%A4%8D%E6%89%A7%E8%A1%8C/</url>
@@ -285,29 +327,6 @@
     </entry>
     
     <entry>
-      <title>Git入门与进阶</title>
-      <link href="/2018/04/18/Git%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6/"/>
-      <url>/2018/04/18/Git%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6/</url>
-      <content type="html"><![CDATA[<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/log.png" alt=""></p><blockquote><p>&emsp;&emsp;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p></blockquote><h3 id="Git-与-SVN-对比"><a href="#Git-与-SVN-对比" class="headerlink" title="Git 与 SVN 对比"></a>Git 与 SVN 对比</h3><ul><li>SVN 是集中式版本控制软件，版本库是放在中央服务器，当我们进行项目开发时，首先要从中央服务器获取最新版本；开发完毕后要将代码提交到中央服务器。<font color="red">集中版本式控制系统必须联网才能工作，即使是局域网也必须保持与局域网服务器的连接。</font></li><li>Git 是分布式版本控制软件，它没有中央服务器一说，每个人的电脑就是一个完整的版本库。当我们需要共享文件的时候只需要创建一个共享版本库进行push或pull就能看到对方修改。</li></ul><h3 id="Git-工作流程"><a href="#Git-工作流程" class="headerlink" title="Git 工作流程"></a>Git 工作流程</h3><p>&emsp;&emsp;一般工作流程如下（具体命令步骤将在下文提出）：</p><ul><li>从远程仓库克隆代码到本地作为本地库（可直接克隆至编辑器工作空间）</li><li>代码开发完毕后提交至本地仓库</li><li>从远程仓库拉取最新版代码，有冲突解决冲突（有冲突时本地仓库文件夹会有“!”标记，有可能标记会有延迟）。</li><li>处理好本地库代码后提交到远程库共享代码</li></ul><h3 id="Git-的下载与安装"><a href="#Git-的下载与安装" class="headerlink" title="Git 的下载与安装"></a>Git 的下载与安装</h3><p>&emsp;&emsp;由于本人使用的是 windows 系统，所以只阐述 windows 下 git 的安装及使用。</p><ul><li><p>Git 软件下载</p><p>  官方下载地址：<strong><a href="https://git-scm.com/download" target="_blank" rel="noopener">https://git-scm.com/download</a></strong></p></li><li><p>Git 软件安装</p><p>  下载完成之后双击进行安装，选择自己的安装路径，傻瓜式 next 一路到底。</p></li></ul><h3 id="Git-本地仓库"><a href="#Git-本地仓库" class="headerlink" title="Git 本地仓库"></a>Git 本地仓库</h3><blockquote><p>&emsp;&emsp;版本库又名仓库，repository，可以理解成一个目录，这个目录里面所有文件都将被 Git 管理起来，每个文件的修改、删除、新增，Git 都能跟踪，并且在无需联网的情况下具有完整的版本管理能力。</p></blockquote><ul><li>创建本地版本库</li></ul><p>在磁盘里任选并进入一个文件夹，右击空白处，如下：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic1.png" alt=""></p><p>点击 <code><strong>Git Bash Here</strong></code>，在出现的窗口中输入 <code><strong>git init</strong></code>，并且将会出现隐藏文件夹 <code><strong>.git</strong></code>。演示里面的文件夹 Git Test 就是我们所说的工作区，隐藏文件夹 <code><strong>.git</strong></code> 就是版本库。</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic2.png" alt=""></p><h3 id="Git-远程仓库"><a href="#Git-远程仓库" class="headerlink" title="Git 远程仓库"></a>Git 远程仓库</h3><blockquote><p>&emsp;&emsp;目前我们已经有了本地 Git 仓库，如果需要协作开发，则必须有一个远程仓库。常用的远程仓库是 github：<strong><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></strong>。</p></blockquote><ul><li>创建 Github 账号（各自摸索…）</li><li>创建远程仓库：</li></ul><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic3.png" alt=""></p><p>填写好仓库名称，仓库描述，选择 <code>Public</code>( <code>Private 是付费的</code>)，就可以 <code>Create repository</code> 了。</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic4.png" alt=""></p><ul><li>SSH 密匙</li></ul><blockquote><p>&emsp;&emsp;SSH 是英文 Secure Shell的简写形式。通过使用 SSH，它可以把所有传输的数据进行加密，这样可以防止 DNS 欺骗和 IP 欺骗。目前 Github 采用这种方式对传输数据进行加密。</p></blockquote><p>在 windows 系统下，我们使用 <code><strong>Git Bash.exe</strong></code> 来生成密匙，命令： <code><strong>ssh-keygen -t rsa</strong></code>。具体操作如下图：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic5.png" alt=""></p><p>执行完命令后，会在 windows <font color="red">本地用户下的 <strong>.ssh</strong> 目录下生成公钥和私钥</font>。</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic6.png" alt=""></p><p>密钥生成后，需要在 Github 上配置密匙本地才能访问，操作如下：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic7.png" alt=""></p><p>点击 <strong>Settings</strong>，选中右边侧边栏的 <strong>SSH and GPS keys</strong>，再点击右上角出现 <strong>New SSH key</strong>，将本地的<font color="red"><strong>公钥</strong></font>里面的信息全部复制，按下图操作：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic8.png" alt=""></p><p>点击 <strong>And SSH key</strong> 按钮完成配置！</p><h3 id="连接-Git-远程仓库并同步"><a href="#连接-Git-远程仓库并同步" class="headerlink" title="连接 Git 远程仓库并同步"></a>连接 Git 远程仓库并同步</h3><ol><li>初始化账号：我们是第一次连接远程仓库，本地 Git 并不知道我们的身份，因此我们需初始化自己的身份；<ul><li>git config user.name “你的Github账号名称(非邮箱)”</li><li>git config user.email “你的Github邮箱”</li></ul></li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic9.png" alt=""></p><ol start="2"><li>添加远程仓库<ul><li>git remote add 远端名称 远程库 SSH 地址</li></ul></li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic10.png" alt=""></p><ol start="3"><li>提交到 Github 远程仓库（个人在项目开发中使用的操作）<ul><li>git status（查看当前状态，包括当前分支、增删改过的文件）</li><li>git add . （将当前目录下的所有操作过的文件添加）</li><li>git commit -m’提交说明’ （提交到本地仓库）</li><li>git pull （拉取远程库的文件，每次提交到本地库后需进行此操作，有冲突则要修改并merge）</li><li>git push （将拉取和自己操作过的文件提交至远程仓库）</li></ul></li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic11.png" alt=""></p><ol start="4"><li>完成所有操作后我们可以在自己的 Github 上查看自己所提交的内容</li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic12.png" alt=""></p><p> <strong>以上是本人的浅显理解，如有错误，请指正，感激不尽！</strong></p>]]></content>
-      
-      <categories>
-          
-          <category> Web前端 </category>
-          
-          <category> git </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Vuejs最佳实践方法</title>
       <link href="/2018/04/18/Vuejs%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
       <url>/2018/04/18/Vuejs%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
@@ -325,6 +344,29 @@
         <tags>
             
             <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Git入门与进阶</title>
+      <link href="/2018/04/18/Git%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6/"/>
+      <url>/2018/04/18/Git%E5%85%A5%E9%97%A8%E4%B8%8E%E8%BF%9B%E9%98%B6/</url>
+      <content type="html"><![CDATA[<p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/log.png" alt=""></p><blockquote><p>&emsp;&emsp;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p></blockquote><h3 id="Git-与-SVN-对比"><a href="#Git-与-SVN-对比" class="headerlink" title="Git 与 SVN 对比"></a>Git 与 SVN 对比</h3><ul><li>SVN 是集中式版本控制软件，版本库是放在中央服务器，当我们进行项目开发时，首先要从中央服务器获取最新版本；开发完毕后要将代码提交到中央服务器。<font color="red">集中版本式控制系统必须联网才能工作，即使是局域网也必须保持与局域网服务器的连接。</font></li><li>Git 是分布式版本控制软件，它没有中央服务器一说，每个人的电脑就是一个完整的版本库。当我们需要共享文件的时候只需要创建一个共享版本库进行push或pull就能看到对方修改。</li></ul><h3 id="Git-工作流程"><a href="#Git-工作流程" class="headerlink" title="Git 工作流程"></a>Git 工作流程</h3><p>&emsp;&emsp;一般工作流程如下（具体命令步骤将在下文提出）：</p><ul><li>从远程仓库克隆代码到本地作为本地库（可直接克隆至编辑器工作空间）</li><li>代码开发完毕后提交至本地仓库</li><li>从远程仓库拉取最新版代码，有冲突解决冲突（有冲突时本地仓库文件夹会有“!”标记，有可能标记会有延迟）。</li><li>处理好本地库代码后提交到远程库共享代码</li></ul><h3 id="Git-的下载与安装"><a href="#Git-的下载与安装" class="headerlink" title="Git 的下载与安装"></a>Git 的下载与安装</h3><p>&emsp;&emsp;由于本人使用的是 windows 系统，所以只阐述 windows 下 git 的安装及使用。</p><ul><li><p>Git 软件下载</p><p>  官方下载地址：<strong><a href="https://git-scm.com/download" target="_blank" rel="noopener">https://git-scm.com/download</a></strong></p></li><li><p>Git 软件安装</p><p>  下载完成之后双击进行安装，选择自己的安装路径，傻瓜式 next 一路到底。</p></li></ul><h3 id="Git-本地仓库"><a href="#Git-本地仓库" class="headerlink" title="Git 本地仓库"></a>Git 本地仓库</h3><blockquote><p>&emsp;&emsp;版本库又名仓库，repository，可以理解成一个目录，这个目录里面所有文件都将被 Git 管理起来，每个文件的修改、删除、新增，Git 都能跟踪，并且在无需联网的情况下具有完整的版本管理能力。</p></blockquote><ul><li>创建本地版本库</li></ul><p>在磁盘里任选并进入一个文件夹，右击空白处，如下：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic1.png" alt=""></p><p>点击 <code><strong>Git Bash Here</strong></code>，在出现的窗口中输入 <code><strong>git init</strong></code>，并且将会出现隐藏文件夹 <code><strong>.git</strong></code>。演示里面的文件夹 Git Test 就是我们所说的工作区，隐藏文件夹 <code><strong>.git</strong></code> 就是版本库。</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic2.png" alt=""></p><h3 id="Git-远程仓库"><a href="#Git-远程仓库" class="headerlink" title="Git 远程仓库"></a>Git 远程仓库</h3><blockquote><p>&emsp;&emsp;目前我们已经有了本地 Git 仓库，如果需要协作开发，则必须有一个远程仓库。常用的远程仓库是 github：<strong><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></strong>。</p></blockquote><ul><li>创建 Github 账号（各自摸索…）</li><li>创建远程仓库：</li></ul><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic3.png" alt=""></p><p>填写好仓库名称，仓库描述，选择 <code>Public</code>( <code>Private 是付费的</code>)，就可以 <code>Create repository</code> 了。</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic4.png" alt=""></p><ul><li>SSH 密匙</li></ul><blockquote><p>&emsp;&emsp;SSH 是英文 Secure Shell的简写形式。通过使用 SSH，它可以把所有传输的数据进行加密，这样可以防止 DNS 欺骗和 IP 欺骗。目前 Github 采用这种方式对传输数据进行加密。</p></blockquote><p>在 windows 系统下，我们使用 <code><strong>Git Bash.exe</strong></code> 来生成密匙，命令： <code><strong>ssh-keygen -t rsa</strong></code>。具体操作如下图：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic5.png" alt=""></p><p>执行完命令后，会在 windows <font color="red">本地用户下的 <strong>.ssh</strong> 目录下生成公钥和私钥</font>。</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic6.png" alt=""></p><p>密钥生成后，需要在 Github 上配置密匙本地才能访问，操作如下：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic7.png" alt=""></p><p>点击 <strong>Settings</strong>，选中右边侧边栏的 <strong>SSH and GPS keys</strong>，再点击右上角出现 <strong>New SSH key</strong>，将本地的<font color="red"><strong>公钥</strong></font>里面的信息全部复制，按下图操作：</p><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic8.png" alt=""></p><p>点击 <strong>And SSH key</strong> 按钮完成配置！</p><h3 id="连接-Git-远程仓库并同步"><a href="#连接-Git-远程仓库并同步" class="headerlink" title="连接 Git 远程仓库并同步"></a>连接 Git 远程仓库并同步</h3><ol><li>初始化账号：我们是第一次连接远程仓库，本地 Git 并不知道我们的身份，因此我们需初始化自己的身份；<ul><li>git config user.name “你的Github账号名称(非邮箱)”</li><li>git config user.email “你的Github邮箱”</li></ul></li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic9.png" alt=""></p><ol start="2"><li>添加远程仓库<ul><li>git remote add 远端名称 远程库 SSH 地址</li></ul></li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic10.png" alt=""></p><ol start="3"><li>提交到 Github 远程仓库（个人在项目开发中使用的操作）<ul><li>git status（查看当前状态，包括当前分支、增删改过的文件）</li><li>git add . （将当前目录下的所有操作过的文件添加）</li><li>git commit -m’提交说明’ （提交到本地仓库）</li><li>git pull （拉取远程库的文件，每次提交到本地库后需进行此操作，有冲突则要修改并merge）</li><li>git push （将拉取和自己操作过的文件提交至远程仓库）</li></ul></li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic11.png" alt=""></p><ol start="4"><li>完成所有操作后我们可以在自己的 Github 上查看自己所提交的内容</li></ol><p><img src="https://github.com/shitouxiaocheng01/JavaNotes/raw/master/Img/Git/pic12.png" alt=""></p><p> <strong>以上是本人的浅显理解，如有错误，请指正，感激不尽！</strong></p>]]></content>
+      
+      <categories>
+          
+          <category> Web前端 </category>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
             
         </tags>
       
