@@ -575,19 +575,6 @@ blockquote::before, .stressed-quote::before {
   margin-left: -25px;
   position: absolute; }
 
-blockquote::after {
-  content: "\201D";
-  display: block;
-  font-family: times;
-  font-style: normal;
-  font-size: 48px;
-  color: #444;
-  font-weight: bold;
-  line-height: 30px;
-  position: absolute;
-  right: -3px;
-  bottom: -30px; }
-
 strong, b, em {
   font-weight: bold; }
 
