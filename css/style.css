@@ -438,10 +438,9 @@ div {
   .post-archive h2 {
     margin: 0;
     height: 45px;
-    padding-left: 30px;
+    padding: 15px 0 15px 30px;
     position: relative;
-    font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
-    padding-bottom: 35px; }
+    font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
   .post-archive .date {
     padding-right: .7em; }
   .post-archive .listing {
